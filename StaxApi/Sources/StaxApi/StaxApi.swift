@@ -43,6 +43,18 @@ public actor StaxApi {
   }
   
   /**
+  Makes a `GET` http request to `https://apiprod.fattlabs.com/team/gateway/hardware/mobile`
+   - returns: A ``MobileReaderDetails`` instance with details about your Stax hardware readers.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned.
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getMobileReaderDetails() async throws -> MobileReaderDetails {
+    let data = try await get(resource: "/team/gateway/hardware/mobile")
+    return try decoder.decode(MobileReaderDetails.self, from: data)
+  }
+  
+  /**
    Makes a paginated `GET` http request to `https://apiprod.fattlabs.com/customer`.
    - parameter page: The customer page to get data from. Defaults to 1.
    - parameter size: The size of the paginated data. Defaults to 50.
@@ -73,7 +85,7 @@ public actor StaxApi {
   /**
    Makes a `POST` http request to `https://apiprod.fattlabs.com/customer`.
    - parameter customer: The Stax ``Customer`` object to create via the Stax API.
-   - returns: The newly created ``Customer`` return from the Stax API.
+   - returns: The newly created ``Customer`` returned from the Stax API.
    - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
    - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
    - throws: A ``URLError.badServerResponse`` if the http response is malformed.
@@ -110,6 +122,331 @@ public actor StaxApi {
   public func deleteCustomer(id: String) async throws -> Customer? {
     let data = try await delete(resource: "/customer/\(id)")
     return try? decoder.decode(Customer.self, from: data)
+  }
+  
+  /**
+   Makes a paginated `GET` http request to `https://apiprod.fattlabs.com/invoice`.
+   - parameter page: The invoice page to get data from. Defaults to 1.
+   - parameter size: The size of the paginated data. Defaults to 50.
+   - returns: A list of Stax ``Invoice`` objects as `[Invoice]`.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getInvoices(page: Int = 1, size: Int = 50) async throws -> [Invoice] {
+    let data = try await get(resource: "/invoice?page=\(page)&per_page=\(size)")
+    let decoded = try decoder.decode(PaginatedResponse<Invoice>.self, from: data)
+    return decoded.data ?? []
+  }
+  
+  /**
+   Makes a `GET` http request to `https://apiprod.fattlabs.com/invoice/{id}`.
+   - parameter id: The Stax invoice ID to get data from.
+   - returns: An optional ``Invoice`` object assosciated with the provided ID.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned.
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getInvoice(id: String) async throws -> Invoice? {
+    let data = try await get(resource: "/invoice/\(id)")
+    return try? decoder.decode(Invoice.self, from: data)
+  }
+  
+  /**
+   Makes a `POST` http request to `https://apiprod.fattlabs.com/invoice`.
+   - parameter customer: The Stax ``Invoice`` object to create via the Stax API.
+   - returns: The newly created ``Invoice`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func createInvoice(invoice: Invoice) async throws -> Invoice? {
+    let body = try encoder.encode(invoice)
+    let data = try await post(resource: "/invoice", body: body)
+    return try? decoder.decode(Invoice.self, from: data)
+  }
+  
+  /**
+   Makes a `PUT` http request to `https://apiprod.fattlabs.com/invoice`.
+   - parameter id: The Stax invoice ID assosciated with the ``Invoice`` to update.
+   - parameter customer: The Stax ``Invoice`` object to modify via the Stax API.
+   - returns: The newly updated ``Invoice`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func updateInvoice(id: String, invoice: Invoice) async throws -> Invoice? {
+    let body = try encoder.encode(invoice)
+    let data = try await put(resource: "/invoice/\(id)", body: body)
+    return try? decoder.decode(Invoice.self, from: data)
+  }
+  
+  /**
+   Makes a `DELETE` http request to `https://apiprod.fattlabs.com/invoice/{id}`.
+   - parameter id: The Stax invoice ID assosciated with the ``Invoice`` to delete.
+   - returns: The recently deleted ``Invoice`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func deleteInvoice(id: String) async throws -> Invoice? {
+    let data = try await delete(resource: "/invoice/\(id)")
+    return try? decoder.decode(Invoice.self, from: data)
+  }
+  
+  /**
+   Makes a paginated `GET` http request to `https://apiprod.fattlabs.com/item`.
+   - parameter page: The item page to get data from. Defaults to 1.
+   - parameter size: The size of the paginated data. Defaults to 50.
+   - returns: A list of Stax ``Item`` objects as `[Item]`.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getItems(page: Int = 1, size: Int = 50) async throws -> [Item] {
+    let data = try await get(resource: "/item?page=\(page)&per_page=\(size)")
+    let decoded = try decoder.decode(PaginatedResponse<Item>.self, from: data)
+    return decoded.data ?? []
+  }
+  
+  /**
+   Makes a `GET` http request to `https://apiprod.fattlabs.com/item/{id}`.
+   - parameter id: The Stax item ID to get data from.
+   - returns: An optional ``Item`` object assosciated with the provided ID.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned.
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getItem(id: String) async throws -> Item? {
+    let data = try await get(resource: "/item/\(id)")
+    return try? decoder.decode(Item.self, from: data)
+  }
+  
+  /**
+   Makes a `POST` http request to `https://apiprod.fattlabs.com/item`.
+   - parameter customer: The Stax ``Item`` object to create via the Stax API.
+   - returns: The newly created ``Item`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func createItem(item: Item) async throws -> Item? {
+    let body = try encoder.encode(item)
+    let data = try await post(resource: "/item", body: body)
+    return try? decoder.decode(Item.self, from: data)
+  }
+  
+  /**
+   Makes a `PUT` http request to `https://apiprod.fattlabs.com/item`.
+   - parameter id: The Stax item ID assosciated with the ``Item`` to update.
+   - parameter customer: The Stax ``Item`` object to modify via the Stax API.
+   - returns: The newly updated ``Item`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func updateItem(id: String, item: Item) async throws -> Item? {
+    let body = try encoder.encode(item)
+    let data = try await put(resource: "/item/\(id)", body: body)
+    return try? decoder.decode(Item.self, from: data)
+  }
+  
+  /**
+   Makes a `DELETE` http request to `https://apiprod.fattlabs.com/item/{id}`.
+   - parameter id: The Stax item ID assosciated with the ``Item`` to delete.
+   - returns: The recently deleted ``Item`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func deleteItem(id: String) async throws -> Item? {
+    let data = try await delete(resource: "/item/\(id)")
+    return try? decoder.decode(Item.self, from: data)
+  }
+  
+  /**
+   Makes a paginated `GET` http request to `https://apiprod.fattlabs.com/transaction`.
+   - parameter page: The transaction page to get data from. Defaults to 1.
+   - parameter size: The size of the paginated data. Defaults to 50.
+   - returns: A list of Stax ``Transaction`` objects as `[Transaction]`.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getTransactions(page: Int = 1, size: Int = 50) async throws -> [Transaction] {
+    let data = try await get(resource: "/transaction?page=\(page)&per_page=\(size)")
+    let decoded = try decoder.decode(PaginatedResponse<Transaction>.self, from: data)
+    return decoded.data ?? []
+  }
+  
+  /**
+   Makes a `GET` http request to `https://apiprod.fattlabs.com/transaction/{id}`.
+   - parameter id: The Stax transaction ID to get data from.
+   - returns: An optional ``Transaction`` object assosciated with the provided ID.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned.
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getTransaction(id: String) async throws -> Transaction? {
+    let data = try await get(resource: "/transaction/\(id)")
+    return try? decoder.decode(Transaction.self, from: data)
+  }
+  
+  /**
+   Makes a `POST` http request to `https://apiprod.fattlabs.com/transaction`.
+   - parameter customer: The Stax ``Transaction`` object to create via the Stax API.
+   - returns: The newly created ``Transaction`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func createTransaction(transaction: Transaction) async throws -> Transaction? {
+    let body = try encoder.encode(transaction)
+    let data = try await post(resource: "/transaction", body: body)
+    return try? decoder.decode(Transaction.self, from: data)
+  }
+  
+  /**
+   Makes a `PUT` http request to `https://apiprod.fattlabs.com/transaction`.
+   - parameter id: The Stax transaction ID assosciated with the ``Transaction`` to update.
+   - parameter customer: The Stax ``Transaction`` object to modify via the Stax API.
+   - returns: The newly updated ``Transaction`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func updateTransaction(id: String, transaction: Transaction) async throws -> Transaction? {
+    let body = try encoder.encode(transaction)
+    let data = try await put(resource: "/transaction/\(id)", body: body)
+    return try? decoder.decode(Transaction.self, from: data)
+  }
+  
+  /**
+   Makes a `DELETE` http request to `https://apiprod.fattlabs.com/transaction/{id}`.
+   - parameter id: The Stax transaction ID assosciated with the ``Transaction`` to delete.
+   - returns: The recently deleted ``Transaction`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func deleteTransaction(id: String) async throws -> Transaction? {
+    let data = try await delete(resource: "/transaction/\(id)")
+    return try? decoder.decode(Transaction.self, from: data)
+  }
+  
+  /**
+   Makes a `POST` http request to `https://apiprod.fattlabs.com/transaction/{id}/capture`
+   - parameter id: The Stax transaction ID assosciated with the ``Transaction`` to capture.
+   - parameter dollars: The dollar string to capture. If this is `nil`, the full amount will be captured. Defaults to `nil`.
+   - returns: The recently captured ``Transaction`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func captureTransaction(id: String, dollars: String? = nil) async throws -> Transaction? {
+    var body: Data? = nil
+    if dollars != nil {
+      body = try? encoder.encode(["total": dollars])
+    }
+    
+    let data = try await post(resource: "/transaction/\(id)/capture", body: body)
+    return try? decoder.decode(Transaction.self, from: data)
+  }
+  
+  /**
+   Makes a `POST` http request to `https://apiprod.fattlabs.com/transaction/{id}/void-or-refund`. The action
+   being performed depends on if the transaction has settled or not.
+   - parameter id: The Stax transaction ID assosciated with the ``Transaction`` to void or refund.
+   - parameter dollars: The dollar string to void or refund. If this is `nil`, the full amount will be used. Defaults to `nil`.
+   - returns: The recently captured ``Transaction`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func voidOrRefundTransaction(id: String, dollars: String? = nil) async throws -> Transaction? {
+    var body: Data? = nil
+    if dollars != nil {
+      body = try? encoder.encode(["total": dollars])
+    }
+    
+    let data = try await post(resource: "/transaction/\(id)/void-or-refund", body: body)
+    return try? decoder.decode(Transaction.self, from: data)
+  }
+  
+  /**
+   Makes a paginated `GET` http request to `https://apiprod.fattlabs.com/payment-method`.
+   - parameter page: The payment method page to get data from. Defaults to 1.
+   - parameter size: The size of the paginated data. Defaults to 50.
+   - parameter customerId: The assosciated customer ID. Defaults to `nil`.
+   - returns: A list of Stax ``PaymentMethod`` objects as `[PaymentMethod]`.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getPaymentMethods(page: Int = 1, size: Int = 50, customerId: String? = nil) async throws -> [PaymentMethod] {
+    var urlStr = "/payment-method?page\(page)&per_page=\(size)"
+    if let id = customerId {
+      urlStr += "&customer_id=\(id)"
+    }
+    
+    let data = try await get(resource: urlStr)
+    let decoded = try decoder.decode(PaginatedResponse<PaymentMethod>.self, from: data)
+    return decoded.data ?? []
+  }
+  
+  /**
+   Makes a `GET` http request to `https://apiprod.fattlabs.com/payment-method/{id}`.
+   - parameter id: The Stax payment method ID to get data from.
+   - returns: An optional ``PaymentMethod`` object assosciated with the provided ID.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned.
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func getPaymentMethod(id: String) async throws -> PaymentMethod? {
+    let data = try await get(resource: "/payment-method/\(id)")
+    return try? decoder.decode(PaymentMethod.self, from: data)
+  }
+  
+  /**
+   Makes a `POST` http request to `https://apiprod.fattlabs.com/payment-method`.
+   - parameter customer: The Stax ``PaymentMethod`` object to create via the Stax API.
+   - returns: The newly created ``PaymentMethod`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func createPaymentMethod(paymentMethod: PaymentMethod) async throws -> PaymentMethod? {
+    let body = try encoder.encode(paymentMethod)
+    let data = try await post(resource: "/payment-method", body: body)
+    return try? decoder.decode(PaymentMethod.self, from: data)
+  }
+  
+  /**
+   Makes a `PUT` http request to `https://apiprod.fattlabs.com/payment-method`.
+   - parameter id: The Stax payment method ID assosciated with the ``PaymentMethod`` to update.
+   - parameter customer: The Stax ``PaymentMethod`` object to modify via the Stax API.
+   - returns: The newly updated ``PaymentMethod`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func updatePaymentMethod(id: String, paymentMethod: PaymentMethod) async throws -> PaymentMethod? {
+    let body = try encoder.encode(paymentMethod)
+    let data = try await put(resource: "/payment-method/\(id)", body: body)
+    return try? decoder.decode(PaymentMethod.self, from: data)
+  }
+  
+  /**
+   Makes a `DELETE` http request to `https://apiprod.fattlabs.com/payment-method/{id}`.
+   - parameter id: The Stax item ID assosciated with the ``PaymentMethod`` to delete.
+   - returns: The recently deleted ``PaymentMethod`` returned from the Stax API.
+   - throws: A ``StaxHttpError`` if a 4XX or 5XX status code is returned
+   - throws: A ``DecodingError.dataCorrupted`` error if the returned JSON is malformed.
+   - throws: A ``URLError.badServerResponse`` if the http response is malformed.
+   */
+  public func deletePaymentMethod(id: String) async throws -> PaymentMethod? {
+    let data = try await delete(resource: "/payment-method/\(id)")
+    return try? decoder.decode(PaymentMethod.self, from: data)
   }
   
   /**
@@ -203,17 +540,7 @@ public actor StaxApi {
     }
   }
   
-  private func handle400Error(_ data: Data, _ response: HTTPURLResponse) -> StaxError {
-    let str = String(bytes: data, encoding: .utf8)
-    if let dictionary = convertJsonStringToDictionary(text: str), let errorMsg = dictionary["error"] as? String {
-      return StaxHttpError(
-        message: "HTTP \(response.statusCode)",
-        detail: errorMsg,
-        data: data,
-        response: response
-      )
-    }
-    
+  private func handle400Error(_ data: Data, _ response: HTTPURLResponse) -> StaxError {    
     return StaxHttpError(
       message: "HTTP \(response.statusCode)",
       detail: "Unexpected 400 level error received when attempting to connect to the Stax API",
