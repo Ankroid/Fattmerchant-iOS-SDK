@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D7B7111523D58C4A00EF98DB"
-               BuildableName = "Fattmerchant-iOS-SDK-Sample.app"
-               BlueprintName = "Fattmerchant-iOS-SDK-Sample"
-               ReferencedContainer = "container:Fattmerchant-iOS-SDK-Sample.xcodeproj">
+               BuildableName = "FattmerchantSDKSample.app"
+               BlueprintName = "FattmerchantSDKSample"
+               ReferencedContainer = "container:FattmerchantSDKSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,9 +31,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D7B7111523D58C4A00EF98DB"
-            BuildableName = "Fattmerchant-iOS-SDK-Sample.app"
-            BlueprintName = "Fattmerchant-iOS-SDK-Sample"
-            ReferencedContainer = "container:Fattmerchant-iOS-SDK-Sample.xcodeproj">
+            BuildableName = "FattmerchantSDKSample.app"
+            BlueprintName = "FattmerchantSDKSample"
+            ReferencedContainer = "container:FattmerchantSDKSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D7B7111523D58C4A00EF98DB"
-            BuildableName = "Fattmerchant-iOS-SDK-Sample.app"
-            BlueprintName = "Fattmerchant-iOS-SDK-Sample"
-            ReferencedContainer = "container:Fattmerchant-iOS-SDK-Sample.xcodeproj">
+            BuildableName = "FattmerchantSDKSample.app"
+            BlueprintName = "FattmerchantSDKSample"
+            ReferencedContainer = "container:FattmerchantSDKSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D7B7111523D58C4A00EF98DB"
-            BuildableName = "Fattmerchant-iOS-SDK-Sample.app"
-            BlueprintName = "Fattmerchant-iOS-SDK-Sample"
-            ReferencedContainer = "container:Fattmerchant-iOS-SDK-Sample.xcodeproj">
+            BuildableName = "FattmerchantSDKSample.app"
+            BlueprintName = "FattmerchantSDKSample"
+            ReferencedContainer = "container:FattmerchantSDKSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -19,7 +19,7 @@
             BlueprintIdentifier = "591C208F206EB12F00C848DA"
             BuildableName = "Fattmerchant.framework"
             BlueprintName = "Fattmerchant"
-            ReferencedContainer = "container:fattmerchant-ios-sdk.xcodeproj">
+            ReferencedContainer = "container:FattmerchantSDK.xcodeproj">
          </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
@@ -30,7 +30,7 @@
                BlueprintIdentifier = "591C209E206EB26600C848DA"
                BuildableName = "FattmerchantTests.xctest"
                BlueprintName = "FattmerchantTests"
-               ReferencedContainer = "container:fattmerchant-ios-sdk.xcodeproj">
+               ReferencedContainer = "container:FattmerchantSDK.xcodeproj">
             </BuildableReference>
             <SkippedTests>
                <Test

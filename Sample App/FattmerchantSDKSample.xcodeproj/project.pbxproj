@@ -37,7 +37,7 @@
 		D7720E1E2412F53A0064DBDC /* SignatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureViewController.swift; sourceTree = "<group>"; };
 		D781037C23D959FA00256F2F /* TransactionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPickerViewController.swift; sourceTree = "<group>"; };
 		D781038123DA472400256F2F /* MobileReaderPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileReaderPickerController.swift; sourceTree = "<group>"; };
-		D7B7111623D58C4A00EF98DB /* Fattmerchant-iOS-SDK-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fattmerchant-iOS-SDK-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7B7111623D58C4A00EF98DB /* FattmerchantSDKSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FattmerchantSDKSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B7111923D58C4A00EF98DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7B7111B23D58C4A00EF98DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7B7111E23D58C4A00EF98DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				D7B7113623D58D7F00EF98DB /* Fattmerchant.framework */,
-				D7B7111823D58C4A00EF98DB /* Fattmerchant-iOS-SDK-Sample */,
+				D7B7111823D58C4A00EF98DB /* FattmerchantSDKSample */,
 				D7B7111723D58C4A00EF98DB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,12 +71,12 @@
 		D7B7111723D58C4A00EF98DB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D7B7111623D58C4A00EF98DB /* Fattmerchant-iOS-SDK-Sample.app */,
+				D7B7111623D58C4A00EF98DB /* FattmerchantSDKSample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D7B7111823D58C4A00EF98DB /* Fattmerchant-iOS-SDK-Sample */ = {
+		D7B7111823D58C4A00EF98DB /* FattmerchantSDKSample */ = {
 			isa = PBXGroup;
 			children = (
 				D7B7111923D58C4A00EF98DB /* AppDelegate.swift */,
@@ -89,15 +89,15 @@
 				D781038123DA472400256F2F /* MobileReaderPickerController.swift */,
 				D7720E1E2412F53A0064DBDC /* SignatureViewController.swift */,
 			);
-			path = "Fattmerchant-iOS-SDK-Sample";
+			path = FattmerchantSDKSample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D7B7111523D58C4A00EF98DB /* Fattmerchant-iOS-SDK-Sample */ = {
+		D7B7111523D58C4A00EF98DB /* FattmerchantSDKSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D7B7112823D58C4B00EF98DB /* Build configuration list for PBXNativeTarget "Fattmerchant-iOS-SDK-Sample" */;
+			buildConfigurationList = D7B7112823D58C4B00EF98DB /* Build configuration list for PBXNativeTarget "FattmerchantSDKSample" */;
 			buildPhases = (
 				D7B7111223D58C4A00EF98DB /* Sources */,
 				D7B7111323D58C4A00EF98DB /* Frameworks */,
@@ -108,9 +108,9 @@
 			);
 			dependencies = (
 			);
-			name = "Fattmerchant-iOS-SDK-Sample";
+			name = FattmerchantSDKSample;
 			productName = "Fattmerchant-iOS-SDK-Sample";
-			productReference = D7B7111623D58C4A00EF98DB /* Fattmerchant-iOS-SDK-Sample.app */;
+			productReference = D7B7111623D58C4A00EF98DB /* FattmerchantSDKSample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,7 +128,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D7B7111123D58C4A00EF98DB /* Build configuration list for PBXProject "Fattmerchant-iOS-SDK-Sample" */;
+			buildConfigurationList = D7B7111123D58C4A00EF98DB /* Build configuration list for PBXProject "FattmerchantSDKSample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -141,7 +141,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D7B7111523D58C4A00EF98DB /* Fattmerchant-iOS-SDK-Sample */,
+				D7B7111523D58C4A00EF98DB /* FattmerchantSDKSample */,
 			);
 		};
 /* End PBXProject section */
@@ -317,12 +317,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DYRYDWJYX5;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "Fattmerchant-iOS-SDK-Sample/Info.plist";
+				INFOPLIST_FILE = FattmerchantSDKSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fattmerchant.Fattmerchant-iOS-SDK-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fattmerchant.FattmerchantSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -336,12 +336,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DYRYDWJYX5;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = "Fattmerchant-iOS-SDK-Sample/Info.plist";
+				INFOPLIST_FILE = FattmerchantSDKSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fattmerchant.Fattmerchant-iOS-SDK-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fattmerchant.FattmerchantSDKSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -351,7 +351,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D7B7111123D58C4A00EF98DB /* Build configuration list for PBXProject "Fattmerchant-iOS-SDK-Sample" */ = {
+		D7B7111123D58C4A00EF98DB /* Build configuration list for PBXProject "FattmerchantSDKSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D7B7112623D58C4B00EF98DB /* Debug */,
@@ -360,7 +360,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D7B7112823D58C4B00EF98DB /* Build configuration list for PBXNativeTarget "Fattmerchant-iOS-SDK-Sample" */ = {
+		D7B7112823D58C4B00EF98DB /* Build configuration list for PBXNativeTarget "FattmerchantSDKSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D7B7112923D58C4B00EF98DB /* Debug */,

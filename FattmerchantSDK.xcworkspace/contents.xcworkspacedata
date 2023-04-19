@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:StaxApi">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/thomasvidas/Code/Stax/Fattmerchant-iOS-SDK/Sample App/FattmerchantSDKSample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/thomasvidas/Code/Stax/Fattmerchant-iOS-SDK/FattmerchantSDK.xcodeproj">
+   </FileRef>
+</Workspace>
