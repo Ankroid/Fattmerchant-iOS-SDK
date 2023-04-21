@@ -382,10 +382,10 @@
 		591C2092206EB12F00C848DA /* fattmerchant-ios-sdk */ = {
 			isa = PBXGroup;
 			children = (
-				A788DDC928EFC783002D02B3 /* ThirdParty */,
-				593A7FD52468788000D78874 /* Utils */,
 				D71B6F8F239E9702007FB7C4 /* Cardpresent */,
 				5993C2F6207D0402004DDA9F /* Models */,
+				593A7FD52468788000D78874 /* Shared */,
+				A788DDC928EFC783002D02B3 /* ThirdParty */,
 				591C2094206EB12F00C848DA /* Info.plist */,
 				D71B6F92239E9892007FB7C4 /* chipdna-bridging-header.h */,
 				D78FA92F240EACA200398D81 /* Fattmerchant.h */,
@@ -411,13 +411,13 @@
 			path = fattmerchant_ios_sdkTests;
 			sourceTree = "<group>";
 		};
-		593A7FD52468788000D78874 /* Utils */ = {
+		593A7FD52468788000D78874 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				D71DDE7D28979D9F00D4C42E /* String+Blank.swift */,
 				593A7FD6246878B700D78874 /* AsyncFilter.swift */,
 			);
-			path = Utils;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		593A7FD92468955300D78874 /* Utils */ = {
@@ -471,6 +471,7 @@
 		D702B7BB23C8CDE400B8AB79 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D765D47723CC4AFF00656040 /* Repository */,
 				D702B7BC23C8D0DD00B8AB79 /* StaxApi.swift */,
 				D79308D323D24B680066FCA2 /* Endpoints.swift */,
 				D7B7113A23D63B0D00EF98DB /* Environment.swift */,
@@ -505,7 +506,6 @@
 				D79308B623D0AC2E0066FCA2 /* Usecase */,
 				D702B7BB23C8CDE400B8AB79 /* Networking */,
 				D79308B523D0ABC70066FCA2 /* ChipDna */,
-				D765D47723CC4AFF00656040 /* Repository */,
 				D765D48223CE419700656040 /* JSON */,
 				D765D48123CD00C800656040 /* Data */,
 				D79308A623D0A9050066FCA2 /* MobileReaderDriver.swift */,
@@ -1105,6 +1105,7 @@
 				);
 				INFOPLIST_FILE = "fattmerchant-ios-sdk/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1141,6 +1142,7 @@
 				);
 				INFOPLIST_FILE = "fattmerchant-ios-sdk/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

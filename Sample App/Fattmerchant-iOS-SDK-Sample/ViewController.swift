@@ -11,7 +11,7 @@ import Fattmerchant
 
 class ViewController: UIViewController, TransactionUpdateDelegate, MobileReaderConnectionStatusDelegate, UserNotificationDelegate {
 
-  var omni: Omni?
+  var omni: Stax?
   var lastPreauthTransaction: Transaction? = nil
 
   @IBOutlet weak var activityTextArea: UITextView!
@@ -58,7 +58,7 @@ class ViewController: UIViewController, TransactionUpdateDelegate, MobileReaderC
     self.cancelTransaction()
   }
 
-  let apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudCI6ImU3MTJhZThlLTIwOWUtNGNkYi05MDMwLTc1NWU2OWFmMTI0NiIsImdvZFVzZXIiOmZhbHNlLCJicmFuZCI6ImZhdHRtZXJjaGFudCIsInN1YiI6IjIxODNhODQ1LWMxMjAtNGZkYi04Mzc4LThlZjBkYzhhYjkzYSIsImlzcyI6Imh0dHA6Ly9hcGlkZXYuZmF0dGxhYnMuY29tL2F1dGhlbnRpY2F0ZSIsImlhdCI6MTY1Mzc0NzM1NCwiZXhwIjoxNjUzODMzNzU0LCJuYmYiOjE2NTM3NDczNTQsImp0aSI6IjdVYTNBckhlN0t3TlI3NnAifQ.ev5kFgpup49bv10mjGGCX6aSkGKjHXEQJw5QFwA6Q1A"
+  let apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJnb2RVc2VyIjpmYWxzZSwibWVyY2hhbnQiOiI1ZjVkNGRkZi01N2E5LTQyMWMtOTMxMy0zMWI4ZDA5MTcyNjkiLCJzdWIiOiI4MmJlYzljMy0wMjU5LTQ1ZDQtYjk2Yi02ZTFmZTZhNTc5MDgiLCJicmFuZCI6ImZhdHRtZXJjaGFudCIsImlzcyI6Imh0dHA6Ly9hcGlwcm9kLmZhdHRsYWJzLmNvbS90ZWFtL2FwaWtleSIsImlhdCI6MTY2ODYyNTQ3MywiZXhwIjo0ODIyMjI1NDczLCJuYmYiOjE2Njg2MjU0NzMsImp0aSI6IlhqVmJBWFpjSnFBNkJGTnkiLCJhc3N1bWluZyI6ZmFsc2V9.zfu2HAyrZFb_Vmi7rptiuVFDEDEIrw2MCuORxk1XYBo"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -72,7 +72,7 @@ class ViewController: UIViewController, TransactionUpdateDelegate, MobileReaderC
 
   fileprivate func initializeOmni() {
     // instantiate Omni and store somewhere
-    omni = Omni()
+    omni = Stax()
     omni?.signatureProvider = SignatureViewController()
     omni?.transactionUpdateDelegate = self
     omni?.userNotificationDelegate = self
@@ -312,8 +312,8 @@ class ViewController: UIViewController, TransactionUpdateDelegate, MobileReaderC
     return formatter.string(from: Date())
   }
 
-  fileprivate func initParams() -> Omni.InitParams {
-    return Omni.InitParams(appId: "fmiossample", apiKey: apiKey, environment: Environment.DEV)
+  fileprivate func initParams() -> Stax.InitParams {
+    return Stax.InitParams(appId: "fmiossample", apiKey: apiKey, environment: Environment.LIVE)
   }
 
   func onTransactionUpdate(transactionUpdate: TransactionUpdate) {
@@ -352,7 +352,7 @@ class ViewController: UIViewController, TransactionUpdateDelegate, MobileReaderC
     self.log(message)
   }
 
-  fileprivate func log(_ error: OmniException) {
+  fileprivate func log(_ error: StaxException) {
     var errorMessage = error.message
     if let detail = error.detail {
       errorMessage += ". \(detail)"
