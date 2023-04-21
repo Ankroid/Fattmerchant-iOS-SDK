@@ -204,9 +204,7 @@ class StaxTest: XCTestCase {
 
     let mockApi = stax.staxApi as! MockStaxApi
 
-    let awcDetails = AWCDetails(terminalId: "someterminalid", terminalSecret: "terminalsecret")
     let mobileReaderDetails = MobileReaderDetails()
-    mobileReaderDetails.anywhereCommerce = awcDetails
     mockApi.stub("get", "/team/gateway/hardware/mobile", body: nil, response: .success(mobileReaderDetails))
 
     let initialized = expectation(description: "Stax gets initialized")

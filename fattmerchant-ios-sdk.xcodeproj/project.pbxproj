@@ -66,6 +66,9 @@
 		5993C2662077B4EE004DDA9F /* BankHolderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993C2652077B4EE004DDA9F /* BankHolderType.swift */; };
 		5993C2682077B6B6004DDA9F /* PaymentMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993C2672077B6B6004DDA9F /* PaymentMethodType.swift */; };
 		59F1FF3F24742F3F00019E06 /* TakeMobileReaderPaymentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1FF3E24742F3F00019E06 /* TakeMobileReaderPaymentTests.swift */; };
+		A777C32029F234D900130BB3 /* StaxNetworkingException.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777C31F29F234D900130BB3 /* StaxNetworkingException.swift */; };
+		A777C32229F234EE00130BB3 /* StaxInitializeException.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777C32129F234EE00130BB3 /* StaxInitializeException.swift */; };
+		A777C32429F234FF00130BB3 /* StaxGeneralException.swift in Sources */ = {isa = PBXBuildFile; fileRef = A777C32329F234FF00130BB3 /* StaxGeneralException.swift */; };
 		A788DDCA28EFC7E4002D02B3 /* libCardEaseXml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5966542425003B8600A56943 /* libCardEaseXml.a */; };
 		A788DDCB28EFC7E4002D02B3 /* libChipDnaMobileAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5966543125003B8700A56943 /* libChipDnaMobileAPI.a */; };
 		A788DDCD28EFC7E4002D02B3 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
@@ -254,6 +257,9 @@
 		5993C2652077B4EE004DDA9F /* BankHolderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankHolderType.swift; sourceTree = "<group>"; };
 		5993C2672077B6B6004DDA9F /* PaymentMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodType.swift; sourceTree = "<group>"; };
 		59F1FF3E24742F3F00019E06 /* TakeMobileReaderPaymentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeMobileReaderPaymentTests.swift; sourceTree = "<group>"; };
+		A777C31F29F234D900130BB3 /* StaxNetworkingException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxNetworkingException.swift; sourceTree = "<group>"; };
+		A777C32129F234EE00130BB3 /* StaxInitializeException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxInitializeException.swift; sourceTree = "<group>"; };
+		A777C32329F234FF00130BB3 /* StaxGeneralException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxGeneralException.swift; sourceTree = "<group>"; };
 		A788DDCE28EFC99D002D02B3 /* AnyPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnyPay.framework; path = "fattmerchant-ios-sdk/ThirdParty/AnyPay/AnyPay.framework"; sourceTree = "<group>"; };
 		D702B7BC23C8D0DD00B8AB79 /* StaxApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaxApi.swift; sourceTree = "<group>"; };
 		D71B6F90239E971A007FB7C4 /* ChipDnaDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipDnaDriver.swift; sourceTree = "<group>"; };
@@ -383,7 +389,6 @@
 			isa = PBXGroup;
 			children = (
 				D71B6F8F239E9702007FB7C4 /* Cardpresent */,
-				5993C2F6207D0402004DDA9F /* Models */,
 				593A7FD52468788000D78874 /* Shared */,
 				A788DDC928EFC783002D02B3 /* ThirdParty */,
 				591C2094206EB12F00C848DA /* Info.plist */,
@@ -414,6 +419,8 @@
 		593A7FD52468788000D78874 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				A777C31E29F234CD00130BB3 /* Exceptions */,
+				5993C2F6207D0402004DDA9F /* Models */,
 				D71DDE7D28979D9F00D4C42E /* String+Blank.swift */,
 				593A7FD6246878B700D78874 /* AsyncFilter.swift */,
 			);
@@ -458,6 +465,16 @@
 				46231C5A24DAF4A500A06E1B /* CatalogItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A777C31E29F234CD00130BB3 /* Exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				A777C31F29F234D900130BB3 /* StaxNetworkingException.swift */,
+				A777C32129F234EE00130BB3 /* StaxInitializeException.swift */,
+				A777C32329F234FF00130BB3 /* StaxGeneralException.swift */,
+			);
+			path = Exceptions;
 			sourceTree = "<group>";
 		};
 		A788DDC928EFC783002D02B3 /* ThirdParty */ = {
@@ -817,6 +834,8 @@
 				D765D46F23CC488000656040 /* Merchant.swift in Sources */,
 				D79308BB23D0ADEF0066FCA2 /* InitializeDrivers.swift in Sources */,
 				D765D47923CC4B1100656040 /* CustomerRepository.swift in Sources */,
+				A777C32029F234D900130BB3 /* StaxNetworkingException.swift in Sources */,
+				A777C32229F234EE00130BB3 /* StaxInitializeException.swift in Sources */,
 				D79308AD23D0AA230066FCA2 /* TransactionResult.swift in Sources */,
 				D79308A423D0A8B10066FCA2 /* MobileReader.swift in Sources */,
 				593A7FD7246878B700D78874 /* AsyncFilter.swift in Sources */,
@@ -838,6 +857,7 @@
 				5993C2642077A687004DDA9F /* BankAccount.swift in Sources */,
 				D7A28D642436278600FC8872 /* TokenizePaymentMethod.swift in Sources */,
 				597BEA4B2480C4C9009319D6 /* TransactionGateway.swift in Sources */,
+				A777C32429F234FF00130BB3 /* StaxGeneralException.swift in Sources */,
 				D783DAC02449E905007C0A17 /* ChargeRequest.swift in Sources */,
 				D765D46923CC467100656040 /* Model.swift in Sources */,
 				D7801BF4241F26E200A93001 /* ModelRepository+DefaultImpl.swift in Sources */,

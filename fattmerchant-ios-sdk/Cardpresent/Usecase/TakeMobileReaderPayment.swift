@@ -234,7 +234,7 @@ class TakeMobileReaderPayment {
         // Set the transaction to not refundable or voidable if the Stax backend cannot perform the refund
         // This is extremely important because it prevents a user from attempting a refund via the VT or the Stax API that
         // could never work. The reason it won't work is because Stax doesn't have a deep integration with all of our
-        // third party vendors, such as AnywhereCommerce.
+        // third party vendors.
         if !type(of: driver).staxRefundsSupported {
             transactionToCreate.isRefundable = false
             transactionToCreate.isVoidable = false
