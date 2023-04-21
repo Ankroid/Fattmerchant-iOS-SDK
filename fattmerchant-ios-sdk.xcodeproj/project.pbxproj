@@ -13,7 +13,6 @@
 		466BBA5424E7676C00EAEBBB /* ChipDnaDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71B6F90239E971A007FB7C4 /* ChipDnaDriver.swift */; };
 		46C3ECC724CF551F005B4790 /* MobileReaderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C3ECC624CF551F005B4790 /* MobileReaderDetails.swift */; };
 		593A7FAC24600FEF00D78874 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D793091123D256690066FCA2 /* CoreBluetooth.framework */; };
-		593A7FB02460118400D78874 /* AWCUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A7FAF2460118400D78874 /* AWCUtils.swift */; };
 		593A7FD7246878B700D78874 /* AsyncFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A7FD6246878B700D78874 /* AsyncFilter.swift */; };
 		593A7FD8246878B700D78874 /* AsyncFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A7FD6246878B700D78874 /* AsyncFilter.swift */; };
 		593A7FDB2468956000D78874 /* AsyncFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A7FDA2468956000D78874 /* AsyncFilterTests.swift */; };
@@ -54,7 +53,6 @@
 		5966545425003B8800A56943 /* ErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 5966543925003B8800A56943 /* ErrorCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5966545525003B8800A56943 /* TransactionTypeIDEnum.h in Headers */ = {isa = PBXBuildFile; fileRef = 5966543A25003B8800A56943 /* TransactionTypeIDEnum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5966545625003B8800A56943 /* ChipDnaMobile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5966543B25003B8800A56943 /* ChipDnaMobile.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		596963FF245FED1000D0612F /* AWCDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596963FE245FED1000D0612F /* AWCDriver.swift */; };
 		597BEA48247FE205009319D6 /* TransactionUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597BEA47247FE205009319D6 /* TransactionUpdateDelegate.swift */; };
 		597BEA4B2480C4C9009319D6 /* TransactionGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597BEA4A2480C4C9009319D6 /* TransactionGateway.swift */; };
 		597BEA4D2480D892009319D6 /* ChipDnaXMLTransactionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597BEA4C2480D892009319D6 /* ChipDnaXMLTransactionParser.swift */; };
@@ -210,7 +208,6 @@
 		591C2094206EB12F00C848DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		591C209F206EB26600C848DA /* FattmerchantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FattmerchantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		591C20A3206EB26700C848DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		593A7FAF2460118400D78874 /* AWCUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWCUtils.swift; sourceTree = "<group>"; };
 		593A7FD6246878B700D78874 /* AsyncFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncFilter.swift; sourceTree = "<group>"; };
 		593A7FDA2468956000D78874 /* AsyncFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncFilterTests.swift; sourceTree = "<group>"; };
 		594466AA249C5BDC00C6CFD8 /* CancelCurrentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelCurrentTransaction.swift; sourceTree = "<group>"; };
@@ -245,7 +242,6 @@
 		5966543925003B8800A56943 /* ErrorCodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorCodes.h; sourceTree = "<group>"; };
 		5966543A25003B8800A56943 /* TransactionTypeIDEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTypeIDEnum.h; sourceTree = "<group>"; };
 		5966543B25003B8800A56943 /* ChipDnaMobile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChipDnaMobile.h; sourceTree = "<group>"; };
-		596963FE245FED1000D0612F /* AWCDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWCDriver.swift; sourceTree = "<group>"; };
 		597BEA47247FE205009319D6 /* TransactionUpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionUpdateDelegate.swift; sourceTree = "<group>"; };
 		597BEA4A2480C4C9009319D6 /* TransactionGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionGateway.swift; sourceTree = "<group>"; };
 		597BEA4C2480D892009319D6 /* ChipDnaXMLTransactionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipDnaXMLTransactionParser.swift; sourceTree = "<group>"; };
@@ -432,15 +428,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		596963FD245FECEA00D0612F /* AnywhereCommerce */ = {
-			isa = PBXGroup;
-			children = (
-				596963FE245FED1000D0612F /* AWCDriver.swift */,
-				593A7FAF2460118400D78874 /* AWCUtils.swift */,
-			);
-			path = AnywhereCommerce;
-			sourceTree = "<group>";
-		};
 		597BEA4F24851B68009319D6 /* ChipDna */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,7 +508,6 @@
 				D765D47723CC4AFF00656040 /* Repository */,
 				D765D48223CE419700656040 /* JSON */,
 				D765D48123CD00C800656040 /* Data */,
-				596963FD245FECEA00D0612F /* AnywhereCommerce */,
 				D79308A623D0A9050066FCA2 /* MobileReaderDriver.swift */,
 				D79308AF23D0AA9A0066FCA2 /* TransactionType.swift */,
 				D79308C623D1045C0066FCA2 /* Stax.swift */,
@@ -859,7 +845,6 @@
 				D79308D223D22F480066FCA2 /* ChipDnaTransactionUserReference.swift in Sources */,
 				D79308C123D0E0B40066FCA2 /* SearchForReaders.swift in Sources */,
 				D79308B023D0AA9A0066FCA2 /* TransactionType.swift in Sources */,
-				596963FF245FED1000D0612F /* AWCDriver.swift in Sources */,
 				D765D48423CE41A500656040 /* JSONValue.swift in Sources */,
 				D765D49F23CFCA1400656040 /* Amount.swift in Sources */,
 				D765D49623CFC1A000656040 /* InvoiceRepository.swift in Sources */,
@@ -879,7 +864,6 @@
 				D79308B823D0AC3A0066FCA2 /* ConnectMobileReader.swift in Sources */,
 				597BEA4D2480D892009319D6 /* ChipDnaXMLTransactionParser.swift in Sources */,
 				D781037F23D9F85100256F2F /* PaginatedData.swift in Sources */,
-				593A7FB02460118400D78874 /* AWCUtils.swift in Sources */,
 				D765D46623CC465800656040 /* Customer.swift in Sources */,
 				D7B7113B23D63B0D00EF98DB /* Environment.swift in Sources */,
 				594466AE249E94F800C6CFD8 /* MobileReaderConnectionStatusDelegate.swift in Sources */,

@@ -9,7 +9,6 @@
 import Foundation
 
 #if targetEnvironment(simulator)
-
 #else
 class ChipDnaDriver: NSObject, MobileReaderDriver {
 
