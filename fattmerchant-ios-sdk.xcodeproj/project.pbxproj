@@ -421,6 +421,7 @@
 			children = (
 				A777C31E29F234CD00130BB3 /* Exceptions */,
 				5993C2F6207D0402004DDA9F /* Models */,
+				D765D49E23CFCA1400656040 /* Amount.swift */,
 				D71DDE7D28979D9F00D4C42E /* String+Blank.swift */,
 				593A7FD6246878B700D78874 /* AsyncFilter.swift */,
 			);
@@ -599,7 +600,6 @@
 		D765D48123CD00C800656040 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				D765D49E23CFCA1400656040 /* Amount.swift */,
 				D79308A923D0A9FB0066FCA2 /* TransactionRequest.swift */,
 				D79308AC23D0AA230066FCA2 /* TransactionResult.swift */,
 				59561817248C3FBD00E622B6 /* TransactionUpdate.swift */,
