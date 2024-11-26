@@ -12,10 +12,6 @@
 		46231C5D24DAFF8100A06E1B /* MobileReaderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C3ECC624CF551F005B4790 /* MobileReaderDetails.swift */; };
 		466BBA5424E7676C00EAEBBB /* ChipDnaDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71B6F90239E971A007FB7C4 /* ChipDnaDriver.swift */; };
 		46C3ECC724CF551F005B4790 /* MobileReaderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C3ECC624CF551F005B4790 /* MobileReaderDetails.swift */; };
-		51F3C6302CF60E0400F37F19 /* BBDevice-BT-3.27.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A74B23872C58095D003FAD5E /* BBDevice-BT-3.27.xcframework */; };
-		51F3C6312CF60E0400F37F19 /* BBDevice-BT-3.27.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A74B23872C58095D003FAD5E /* BBDevice-BT-3.27.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		51F3C6322CF60E0700F37F19 /* BBDeviceOTA-1.6.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A74B23882C58095D003FAD5E /* BBDeviceOTA-1.6.xcframework */; };
-		51F3C6332CF60E0700F37F19 /* BBDeviceOTA-1.6.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A74B23882C58095D003FAD5E /* BBDeviceOTA-1.6.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		593A7FAC24600FEF00D78874 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D793091123D256690066FCA2 /* CoreBluetooth.framework */; };
 		593A7FD7246878B700D78874 /* AsyncFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A7FD6246878B700D78874 /* AsyncFilter.swift */; };
 		593A7FD8246878B700D78874 /* AsyncFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A7FD6246878B700D78874 /* AsyncFilter.swift */; };
@@ -203,21 +199,6 @@
 		D7E15C5A26578C6E006D4EE7 /* VoidTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E15C5826578C6E006D4EE7 /* VoidTransaction.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		A7CAB34D2C0FBEC30053CE4A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				51F3C6332CF60E0700F37F19 /* BBDeviceOTA-1.6.xcframework in Embed Frameworks */,
-				51F3C6312CF60E0400F37F19 /* BBDevice-BT-3.27.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		46231C5A24DAF4A500A06E1B /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
 		46C3ECC624CF551F005B4790 /* MobileReaderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileReaderDetails.swift; sourceTree = "<group>"; };
@@ -367,12 +348,10 @@
 				A74B23B12C58095D003FAD5E /* BBDeviceOTA-1.6.xcframework in Frameworks */,
 				A74B23B02C58095D003FAD5E /* BBDevice-BT-3.27.xcframework in Frameworks */,
 				593A7FAC24600FEF00D78874 /* CoreBluetooth.framework in Frameworks */,
-				51F3C6322CF60E0700F37F19 /* BBDeviceOTA-1.6.xcframework in Frameworks */,
 				D7B7110723D5890600EF98DB /* MediaPlayer.framework in Frameworks */,
 				A74B23C92C58095D003FAD5E /* libChipDnaMobileAPI.a in Frameworks */,
 				A74B23C82C58095D003FAD5E /* libCardEaseXml.a in Frameworks */,
 				D7B7110623D588F800EF98DB /* AudioToolbox.framework in Frameworks */,
-				51F3C6302CF60E0400F37F19 /* BBDevice-BT-3.27.xcframework in Frameworks */,
 				A74B23C62C58095D003FAD5E /* IDTech.xcframework in Frameworks */,
 				D793091423D256840066FCA2 /* CoreAudio.framework in Frameworks */,
 				D793091023D2565E0066FCA2 /* ExternalAccessory.framework in Frameworks */,
@@ -788,7 +767,6 @@
 				591C208B206EB12F00C848DA /* Sources */,
 				591C208C206EB12F00C848DA /* Frameworks */,
 				591C208E206EB12F00C848DA /* Resources */,
-				A7CAB34D2C0FBEC30053CE4A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
