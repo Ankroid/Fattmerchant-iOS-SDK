@@ -37,6 +37,7 @@ Pod::Spec.new do |s|
     'fattmerchant-ios-sdk/Vendor/ChipDnaMobile/SQLCipher/libsqlcipher-4.5.0.a'
   s.vendored_frameworks =
     'fattmerchant-ios-sdk/Vendor/ChipDnaMobile/IDTech.xcframework',
+    'fattmerchant-ios-sdk/Vendor/ChipDnaMobile/BBPOSFrameworks/BBDevice-BT.xcframework',
     'fattmerchant-ios-sdk/Vendor/ChipDnaMobile/BBPOSFrameworks/BBDevice-BT-3.27.0.xcframework',
     'fattmerchant-ios-sdk/Vendor/ChipDnaMobile/BBPOSFrameworks/BBDevice-BT-3.27.3.xcframework',
     'fattmerchant-ios-sdk/Vendor/ChipDnaMobile/BBPOSFrameworks/BBDeviceOTA-1.6.13.xcframework'
